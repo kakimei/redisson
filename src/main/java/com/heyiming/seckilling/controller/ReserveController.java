@@ -16,8 +16,8 @@ public class ReserveController {
     private SeckillingService seckillingService;
 
     @RequestMapping(path = "/reserve", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody boolean reserve(@RequestBody String member){
-        return seckillingService.reserve(member);
+    public @ResponseBody boolean reserve(@RequestBody List<String> member, @RequestParam(name = "itemId") String itemId){
+        return seckillingService.reserve(member, itemId);
     }
 
     @RequestMapping(path = "/prepare", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

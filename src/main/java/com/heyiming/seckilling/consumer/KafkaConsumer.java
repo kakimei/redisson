@@ -11,8 +11,11 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Properties;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Component
 @Slf4j
@@ -54,7 +57,7 @@ public class KafkaConsumer {
                                 consumerRecord.key(),
                                 consumerRecord.value());
                         log.info("kafka message is : {}", consumerRecord.value());
-                        seckillingService.reserve(String.valueOf(consumerRecord.value()));
+                        seckillingService.reserve(Stream.of(String.valueOf(consumerRecord.value())).collect(Collectors.toList()), "111");
                     }
                 }
             }finally {

@@ -6,7 +6,7 @@ public interface SeckillingService {
 
     void prepareInventory();
 
-    boolean reserve(String member);
+    boolean reserve(List<String> member, String itemKey);
 
     List<String> getSuccessMember();
 }
