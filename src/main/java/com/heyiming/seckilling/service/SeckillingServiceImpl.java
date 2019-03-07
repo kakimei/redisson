@@ -59,7 +59,6 @@ public class SeckillingServiceImpl implements SeckillingService{
 					memberList.add(member);
 
 				}
-				redissonClient.getExecutorService(itemKey);
                 inventoryBucket.set(inventory);
             }
         } catch (InterruptedException e) {
