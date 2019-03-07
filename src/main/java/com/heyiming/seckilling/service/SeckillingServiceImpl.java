@@ -17,6 +17,7 @@ import org.redisson.codec.SerializationCodec;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -74,7 +75,9 @@ public class SeckillingServiceImpl implements SeckillingService{
     }
 
     @Override
-    public List<String> getSuccessMember() {
-        return null;
-    }
+    public List<String> getSuccessMember(String itemKey) {
+		List<String> memberList = redissonClient.getList(itemKey, StringCodec.INSTANCE);
+		memberList.sort(String::compareTo);
+		return memberList;
+	}
 }

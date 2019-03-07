@@ -27,7 +27,7 @@ public class ReserveController {
     }
 
     @RequestMapping(path = "/members", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public @ResponseBody List<String> getAllMembers(){
-        return seckillingService.getSuccessMember();
+    public @ResponseBody List<String> getAllMembers(@RequestParam(name = "itemName") String itemName){
+        return seckillingService.getSuccessMember(itemName);
     }
 }

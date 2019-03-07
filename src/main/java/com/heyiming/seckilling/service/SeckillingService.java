@@ -8,5 +8,5 @@ public interface SeckillingService {
 
     boolean reserve(List<String> member, String itemKey);
 
-    List<String> getSuccessMember();
+    List<String> getSuccessMember(String itemKey);
 }
